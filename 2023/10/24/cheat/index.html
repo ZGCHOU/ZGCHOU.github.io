@@ -1,0 +1,235 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>cheat | 终须有</title><meta name="author" content="ChenYi"><meta name="copyright" content="ChenYi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768# 生成密码本# 先引入随机数random，将26个字母与随机数一一对应import random# 定义一个全局字典code&#x3D;&amp;#123;&amp;#1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cheat">
+<meta property="og:url" content="https://zgchou.github.io/2023/10/24/cheat/index.html">
+<meta property="og:site_name" content="终须有">
+<meta property="og:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768# 生成密码本# 先引入随机数random，将26个字母与随机数一一对应import random# 定义一个全局字典code&#x3D;&amp;#123;&amp;#1">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://z1.ax1x.com/2023/10/24/piEKGY8.png">
+<meta property="article:published_time" content="2023-10-24T15:32:33.000Z">
+<meta property="article:modified_time" content="2023-10-24T15:33:16.511Z">
+<meta property="article:author" content="ChenYi">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://z1.ax1x.com/2023/10/24/piEKGY8.png"><link rel="shortcut icon" href="/img/%E7%BD%91%E7%AB%99.png"><link rel="canonical" href="https://zgchou.github.io/2023/10/24/cheat/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'cheat',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-10-24 23:33:16'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/Jay.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://z1.ax1x.com/2023/10/24/piEKGY8.png')"><nav id="nav"><span id="blog-info"><a href="/" title="终须有"><span class="site-name">终须有</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">cheat</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-24T15:32:33.000Z" title="发表于 2023-10-24 23:32:33">2023-10-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-24T15:33:16.511Z" title="更新于 2023-10-24 23:33:16">2023-10-24</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="cheat"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成密码本</span></span><br><span class="line"><span class="comment"># 先引入随机数random，将26个字母与随机数一一对应</span></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="comment"># 定义一个全局字典</span></span><br><span class="line">code=&#123;&#125;</span><br><span class="line"><span class="comment"># 创建一个加密函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">makeCode</span>():</span><br><span class="line">    <span class="comment"># 因为密码需要唯一性，所以要将出现过的数字存储起来，进行对比，若有相同的就换掉这个数字</span></span><br><span class="line">    cd=[]</span><br><span class="line">    <span class="comment"># 有26个字母，使用for循环,循环26次</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">26</span>):</span><br><span class="line">        <span class="comment"># chr(ord(&#x27;a&#x27;) + 1 ) = b</span></span><br><span class="line">        <span class="comment"># 由此可知,使用以下方法取出a-z 26个字母</span></span><br><span class="line">        c = <span class="built_in">chr</span>(<span class="built_in">ord</span>(<span class="string">&#x27;a&#x27;</span>) + i)</span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            <span class="comment"># 生成128-255之间的随机整数</span></span><br><span class="line">            d = random.randint(<span class="number">128</span>,<span class="number">255</span>)</span><br><span class="line">            <span class="comment"># 将该整数赋值给对应字母</span></span><br><span class="line">            <span class="comment"># 保证随机数唯一性</span></span><br><span class="line">            <span class="keyword">if</span> d <span class="keyword">not</span> <span class="keyword">in</span> cd:</span><br><span class="line">                <span class="comment"># 将出现过的数字存进cd数组</span></span><br><span class="line">                cd.append(d)</span><br><span class="line">                <span class="comment"># 将生成的随机数与字母对应起来</span></span><br><span class="line">                code[c] = <span class="built_in">str</span>(d)</span><br><span class="line">                <span class="comment"># 结束</span></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 加密</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">encode</span>(<span class="params">s</span>):</span><br><span class="line">    <span class="comment"># 定义一个t，用来存我们加密后的数据，我们也可以将输入的字母添加其他东西进行加密</span></span><br><span class="line">    t = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> e <span class="keyword">in</span> s:</span><br><span class="line">        <span class="comment"># 如果输入的是26个字母</span></span><br><span class="line">        <span class="keyword">if</span> e &gt;= <span class="string">&quot;a&quot;</span> <span class="keyword">and</span> e &lt;= <span class="string">&quot;z&quot;</span>:</span><br><span class="line">            <span class="comment"># 加密数据</span></span><br><span class="line">            t = t + code[e]</span><br><span class="line">        <span class="comment"># 如果不是26个字母</span></span><br><span class="line">        <span class="keyword">else</span>: t = <span class="string">&quot;&quot;</span></span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">return</span> t</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解密</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">decode</span>(<span class="params">t</span>):</span><br><span class="line">    <span class="comment"># 定义一个s，存储解密后的数据</span></span><br><span class="line">    s = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="comment"># 定义一个i，用于循环以及切片操作</span></span><br><span class="line">    <span class="comment"># 切片：加入说t是一个字符串，那么t[i:i+3]，就是切片t，取出切片t中的i至i+3的字符</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="comment"># 如果i小于t的长度我们就继续循环，直到把字符串t里面的字符全部循环</span></span><br><span class="line">    <span class="keyword">while</span> i &lt; <span class="built_in">len</span>(t):</span><br><span class="line">        <span class="comment"># 切片操作</span></span><br><span class="line">        c= t[i:i+<span class="number">3</span>]</span><br><span class="line">        <span class="comment"># 将code中的每一个字母取出来，跟输入的数据t一一对照，看看是否符合</span></span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> code.keys():</span><br><span class="line">            <span class="comment"># 如果符合，则找到了t对应的字母</span></span><br><span class="line">            <span class="keyword">if</span> code(k) == c:</span><br><span class="line">                s = s + k</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="comment"># 这里的i+3是因为我们的密码是三位数，所以我们用三的倍数进行增加，以便下一次循环</span></span><br><span class="line">        <span class="comment"># 不过我们只有三位数</span></span><br><span class="line">        i = i + <span class="number">3</span></span><br><span class="line">    <span class="keyword">return</span> s</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试</span></span><br><span class="line">s=<span class="string">&quot;o&quot;</span></span><br><span class="line">t=encode(s)</span><br><span class="line"><span class="built_in">print</span>(t)</span><br><span class="line"><span class="built_in">print</span>(decode(t))</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这是导入 AWS SDK for Python（Boto3）的语句，用于访问 Amazon S3 服务。</span></span><br><span class="line"><span class="keyword">import</span> boto3</span><br><span class="line"><span class="comment"># 这是导入 Python 内置的 urllib.request 库，用于发送 HTTP 请求。</span></span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="comment"># 这是导入 Python 内置的 urllib.parse 库，用于 URL 编码。</span></span><br><span class="line"><span class="keyword">import</span> urllib.parse</span><br><span class="line"><span class="comment"># 这是导入 Python 内置的 json 库，用于处理 JSON 格式数据。</span></span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="comment"># 这是从 tkinter 库中导入 filedialog 子模块，用于打开文件选择对话框。</span></span><br><span class="line"><span class="keyword">from</span> tkinter <span class="keyword">import</span> filedialog</span><br><span class="line"><span class="comment"># 这是定义一个名为 getToken 的函数，用于获取 S3 访问凭证。</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">getToken</span>(<span class="params">aws,sNo,sName,sPass</span>):</span><br><span class="line">    <span class="comment"># 这是定义一个字符串变量 url，用于指定获取访问凭证的 API 地址。</span></span><br><span class="line">    url=<span class="string">&quot;http://69.230.202.143:5000/token&quot;</span></span><br><span class="line">    <span class="comment"># 这是定义一个空字典变量 token，用于存储获取到的访问凭证信息。</span></span><br><span class="line">    token=&#123;&#125;</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment"># 这是构造一个字符串变量 data，用于作为 HTTP POST 请求的参数。</span></span><br><span class="line">        data=<span class="string">&quot;aws=&quot;</span>+aws+<span class="string">&quot;&amp;sNo=&quot;</span>+sNo+<span class="string">&quot;&amp;sName=&quot;</span>+urllib.parse.quote(sName)+<span class="string">&quot;&amp;sPass=&quot;</span>+sPass</span><br><span class="line">        <span class="comment"># 这是发送一个 HTTP POST 请求，获取访问凭证信息。data.encode()是将data字符串转化为byte字节流</span></span><br><span class="line">        resp=urllib.request.urlopen(url,data=data.encode())</span><br><span class="line">        <span class="comment"># 这是读取响应数据，并将其转换为字符串类型。</span></span><br><span class="line">        data=resp.read().decode()</span><br><span class="line">        <span class="comment"># 这是将 JSON 格式的字符串转换为 Python 字典类型。</span></span><br><span class="line">        token=json.loads(data)</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> err:</span><br><span class="line">        <span class="built_in">print</span>(err)</span><br><span class="line">    <span class="keyword">return</span> token</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这是定义一个名为 showFiles 的函数，用于显示 S3 桶中的文件列表。</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">showFiles</span>():</span><br><span class="line">    <span class="comment"># 这是调用 Boto3 SDK 中的 list_objects 函数，获取指定前缀的文件列表。</span></span><br><span class="line">    resp=client.list_objects(Bucket=bucketName,Prefix=sNo+<span class="string">&quot;/&quot;</span>)</span><br><span class="line">    <span class="comment"># 这是判断是否存在文件对象。</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">&quot;Contents&quot;</span> <span class="keyword">in</span> resp:</span><br><span class="line">        <span class="comment"># 这是遍历文件对象列表。</span></span><br><span class="line">        <span class="keyword">for</span> f <span class="keyword">in</span> resp[<span class="string">&quot;Contents&quot;</span>]:</span><br><span class="line">            <span class="comment"># 这是输出文件名和文件大小。</span></span><br><span class="line">            <span class="built_in">print</span>(f[<span class="string">&quot;Key&quot;</span>],f[<span class="string">&quot;Size&quot;</span>])</span><br><span class="line">    <span class="built_in">print</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这是定义一个名为 uploadFile 的函数，用于上传本地文件到 S3 桶。</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">uploadFile</span>():</span><br><span class="line">    <span class="comment"># 这是调用 filedialog 子模块中的 askopenfilename 函数，打开文件选择对话框，获取用户选择的文件路径。 </span></span><br><span class="line">    fn=filedialog.askopenfilename()</span><br><span class="line">    <span class="comment"># 这是判断用户是否选择了文件。</span></span><br><span class="line">    <span class="keyword">if</span> fn:</span><br><span class="line">        <span class="comment"># 这是打开用户选择的文件，并以二进制模式读取文件内容。  </span></span><br><span class="line">        f=<span class="built_in">open</span>(fn,<span class="string">&quot;rb&quot;</span>)</span><br><span class="line">        <span class="comment"># 这是读取文件内容，并将其存储到变量 data 中。</span></span><br><span class="line">        data=f.read()</span><br><span class="line">        <span class="comment"># 这是关闭文件句柄。</span></span><br><span class="line">        f.close()</span><br><span class="line">        <span class="comment"># 这是查找文件路径中最后一个斜杠的位置.</span></span><br><span class="line">        p=fn.rfind(<span class="string">&quot;/&quot;</span>)</span><br><span class="line">        <span class="comment"># 这是获取文件名，去掉路径部分。</span></span><br><span class="line">        fn=fn[p+<span class="number">1</span>:]</span><br><span class="line">        <span class="comment"># 这是调用 Boto3 SDK 中的 put_object 函数，上传文件到 S3 桶。</span></span><br><span class="line">        client.put_object(Bucket=bucketName,Key=sNo+<span class="string">&quot;/&quot;</span>+fn,Body=data)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Uploaded&quot;</span>,fn,<span class="built_in">len</span>(data),<span class="string">&quot;bytes&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这是定义一个名为 downloadFile 的函数，用于从 S3 桶中下载文件到本地。</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">downloadFile</span>():</span><br><span class="line">    <span class="comment"># 这是获取用户输入的文件名。</span></span><br><span class="line">    filename = <span class="built_in">input</span>(<span class="string">&quot;请输入要下载的文件名：&quot;</span>)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment"># 这是调用 Boto3 SDK 中的 get_object 函数，获取指定文件对象。</span></span><br><span class="line">        response = client.get_object(Bucket=bucketName, Key=sNo+<span class="string">&quot;/&quot;</span>+filename)</span><br><span class="line">        <span class="comment"># 这是读取文件内容。</span></span><br><span class="line">        data = response[<span class="string">&#x27;Body&#x27;</span>].read()</span><br><span class="line">        <span class="comment"># 这是打开本地文件，并以二进制模式写入文件内容。</span></span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(filename, <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">            f.write(data)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;下载完成&quot;</span>)</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> err:</span><br><span class="line">        <span class="built_in">print</span>(err)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这是定义一个名为 deleteFile 的函数，用于删除 S3 桶中的文件。</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">deleteFile</span>():</span><br><span class="line">    fileName = <span class="built_in">input</span>(<span class="string">&quot;请输入要删除的文件名：&quot;</span>)</span><br><span class="line">    <span class="comment"># 这是判断用户是否输入了文件名。</span></span><br><span class="line">    <span class="keyword">if</span> fileName:</span><br><span class="line">        <span class="comment"># 这是调用 Boto3 SDK 中的 delete_object 函数，删除指定文件对象。</span></span><br><span class="line">        client.delete_object(Bucket=bucketName, Key=sNo+<span class="string">&quot;/&quot;</span>+fileName)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Deleted&quot;</span>, fileName)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    sNo=<span class="string">&quot;2208190105&quot;</span></span><br><span class="line">    sName=<span class="string">&quot;陈奕&quot;</span></span><br><span class="line">    sPass=<span class="string">&quot;2208190105&quot;</span></span><br><span class="line">    <span class="comment"># 这是调用函数 getToken，获取 S3 访问凭证。</span></span><br><span class="line">    token=getToken(<span class="string">&quot;bucket&quot;</span>,sNo,sName,sPass)</span><br><span class="line">    <span class="comment"># 这是判断获取访问凭证是否成功。</span></span><br><span class="line">    <span class="keyword">if</span> token[<span class="string">&quot;msg&quot;</span>]==<span class="string">&quot;success&quot;</span>:</span><br><span class="line">        <span class="comment"># 这是创建一个 S3 客户端对象，用于操作 S3 桶。</span></span><br><span class="line">        client=boto3.client(<span class="string">&quot;s3&quot;</span>,</span><br><span class="line">        aws_access_key_id=token[<span class="string">&quot;keyID&quot;</span>],</span><br><span class="line">        aws_secret_access_key=token[<span class="string">&quot;secretKey&quot;</span>],</span><br><span class="line">        aws_session_token=token[<span class="string">&quot;sessionToken&quot;</span>],</span><br><span class="line">        region_name=<span class="string">&quot;cn-northwest-1&quot;</span>)</span><br><span class="line">        bucketName=token[<span class="string">&quot;bucketName&quot;</span>]</span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;1.显示&quot;</span>)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;2.上传&quot;</span>)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;3.下载&quot;</span>)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;4.删除&quot;</span>)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;5.退出&quot;</span>)</span><br><span class="line">            s=<span class="built_in">input</span>(<span class="string">&quot;选择1-5:&quot;</span>)</span><br><span class="line">            <span class="keyword">if</span> s==<span class="string">&quot;1&quot;</span>:</span><br><span class="line">                showFiles()</span><br><span class="line">            <span class="keyword">elif</span> s==<span class="string">&quot;2&quot;</span>:</span><br><span class="line">                uploadFile()</span><br><span class="line">            <span class="keyword">elif</span> s==<span class="string">&quot;3&quot;</span>:</span><br><span class="line">                downloadFile()</span><br><span class="line">            <span class="keyword">elif</span> s==<span class="string">&quot;4&quot;</span>:</span><br><span class="line">                deleteFile()</span><br><span class="line">            <span class="keyword">elif</span> s==<span class="string">&quot;5&quot;</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> err:</span><br><span class="line">    <span class="built_in">print</span>(err)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://zgchou.github.io">ChenYi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://zgchou.github.io/2023/10/24/cheat/">https://zgchou.github.io/2023/10/24/cheat/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://zgchou.github.io" target="_blank">终须有</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://z1.ax1x.com/2023/10/24/piEKGY8.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/10/21/%E8%BD%AF%E6%B5%8B%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="软测理论基础"><img class="cover" src="https://z1.ax1x.com/2023/10/24/piEKEFK.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">软测理论基础</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/Jay.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ChenYi</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ZGCHOU"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/ZGCHOU" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:chenzhou0469@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">山高水远</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/10/24/cheat/" title="cheat"><img src="https://z1.ax1x.com/2023/10/24/piEKGY8.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="cheat"/></a><div class="content"><a class="title" href="/2023/10/24/cheat/" title="cheat">cheat</a><time datetime="2023-10-24T15:32:33.000Z" title="发表于 2023-10-24 23:32:33">2023-10-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/21/%E8%BD%AF%E6%B5%8B%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="软测理论基础"><img src="https://z1.ax1x.com/2023/10/24/piEKEFK.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="软测理论基础"/></a><div class="content"><a class="title" href="/2023/10/21/%E8%BD%AF%E6%B5%8B%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="软测理论基础">软测理论基础</a><time datetime="2023-10-20T16:21:12.000Z" title="发表于 2023-10-21 00:21:12">2023-10-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/20/SpringBoot/" title="SpringBoot"><img src="https://z1.ax1x.com/2023/10/24/piEKko6.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SpringBoot"/></a><div class="content"><a class="title" href="/2023/10/20/SpringBoot/" title="SpringBoot">SpringBoot</a><time datetime="2023-10-20T07:41:27.000Z" title="发表于 2023-10-20 15:41:27">2023-10-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/19/JUnit/" title="JUnit"><img src="https://z1.ax1x.com/2023/10/24/piEKEFK.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JUnit"/></a><div class="content"><a class="title" href="/2023/10/19/JUnit/" title="JUnit">JUnit</a><time datetime="2023-10-18T18:04:09.000Z" title="发表于 2023-10-19 02:04:09">2023-10-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/18/Fabric%E7%9A%84%E5%AD%A6%E4%BD%8D%E5%AD%A6%E5%8E%86%E8%AE%A4%E8%AF%81%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" title="Fabric的学位学历认证管理系统"><img src="https://z1.ax1x.com/2023/10/24/piEK1TP.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Fabric的学位学历认证管理系统"/></a><div class="content"><a class="title" href="/2023/10/18/Fabric%E7%9A%84%E5%AD%A6%E4%BD%8D%E5%AD%A6%E5%8E%86%E8%AE%A4%E8%AF%81%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" title="Fabric的学位学历认证管理系统">Fabric的学位学历认证管理系统</a><time datetime="2023-10-18T15:44:29.000Z" title="发表于 2023-10-18 23:44:29">2023-10-18</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2023 By ChenYi</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my <a href="https://zgchou.github.io/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
