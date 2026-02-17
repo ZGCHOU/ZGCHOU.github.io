@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html,
+  body {
+    height: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    margin: 0;
+    color: #2f3a33;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+
+    /* 奶油纸张 + 复合光晕系统 */
+    background-color: #fdfaf1;
+    background-image:
+      /* 鼠尾草绿柔光 */
+      radial-gradient(at 15% 10%, rgba(168, 191, 161, 0.25) 0px, transparent 45%),
+      /* 暖阳橘柔光 */
+      radial-gradient(at 85% 15%, rgba(233, 173, 154, 0.18) 0px, transparent 40%),
+      /* 蓝紫色微光 */
+      radial-gradient(at 50% 90%, rgba(165, 202, 210, 0.15) 0px, transparent 45%),
+      /* 高级噪点纹理 */
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E"),
+      /* 纸张点阵 */
+      radial-gradient(rgba(47, 58, 51, 0.04) 0.5px, transparent 0.5px),
+      radial-gradient(rgba(168, 191, 161, 0.06) 0.55px, transparent 0.55px);
+    
+    background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 12px 12px;
+    background-size: 100% 100%, 100% 100%, 100% 100%, 200px 200px, 24px 24px, 24px 24px;
+    background-attachment: fixed;
+  }
+}
+
+@layer components {
+  .handbook-card {
+    @apply rounded-[2.5rem] bg-white/60 p-8 shadow-handbook ring-1 ring-white/40 backdrop-blur-2xl transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)];
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* 拟物化高光描边 */
+  .handbook-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    @apply rounded-[2.5rem] pointer-events-none ring-1 ring-inset ring-white/60;
+    background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, transparent 50%, rgba(0,0,0,0.02) 100%);
+  }
+
+  /* 纸张微噪点叠加 */
+  .handbook-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    @apply rounded-[2.5rem] pointer-events-none opacity-[0.03] mix-blend-overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  }
+
+  .handbook-card-hover {
+    @apply hover:translate-y-[-8px] hover:bg-white/75 hover:shadow-handbook-hover;
+  }
+
+  /* 拟物化信封 */
+  .envelope-wrapper {
+    perspective: 1000px;
+  }
+  
+  .envelope {
+    position: relative;
+    width: 280px;
+    height: 180px;
+    background: #f3f0e6;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transform-style: preserve-3d;
+    transition: transform 1s ease-in-out;
+  }
+
+  .envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 140px solid transparent;
+    border-right: 140px solid transparent;
+    border-top: 100px solid #e8e4d8;
+    transform-origin: top;
+    transition: transform 0.6s 0.4s ease-in-out;
+    z-index: 3;
+  }
+
+  .envelope-flap.is-closed {
+    transform: rotateX(180deg);
+    z-index: 5;
+  }
+
+  .seal {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    width: 50px;
+    height: 50px;
+    background: #a34b43; /* 经典的火漆红 */
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2), inset 0 0 10px rgba(0,0,0,0.1);
+    z-index: 10;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f3f0e6;
+  }
+
+  .seal.is-stamped {
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+/* 投递飞出动画 */
+@keyframes fly-away {
+  0% { transform: scale(1) translateY(0) rotate(0); opacity: 1; }
+  30% { transform: scale(0.9) translateY(20px) rotate(-2deg); opacity: 1; }
+  100% { transform: scale(0) translateY(-500px) rotate(10deg); opacity: 0; }
+}
+
+.animate-fly-away {
+  animation: fly-away 1.2s forwards cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.fade-enter-from {
+  opacity: 0;
+  transform: translateY(24px) scale(0.96);
+}
+
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(-20px) scale(0.96);
+}
