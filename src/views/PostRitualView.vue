@@ -78,6 +78,7 @@ onMounted(async () => {
         <div class="envelope-wrapper">
           <div class="envelope" :class="isFlying ? 'animate-fly-away' : ''">
             <div class="envelope-flap" :class="isFlapClosed ? 'is-closed' : ''" />
+            <div class="envelope-bottom" />
             <div class="seal" :class="isStamped ? 'is-stamped' : ''">
               <Check v-if="phase === 'done'" class="h-5 w-5" />
             </div>

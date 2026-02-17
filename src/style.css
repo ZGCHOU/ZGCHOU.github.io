@@ -122,24 +122,42 @@
     content: '';
     position: absolute;
     inset: 0;
-    background:
-      linear-gradient(to top, rgba(0,0,0,0.04), transparent 50%),
-      #ffffff;
+    background: #ffffff;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 50% 45%, 0 100%);
     z-index: 2;
     border-radius: 8px;
-    box-shadow: inset 0 -10px 20px rgba(0,0,0,0.02);
+    box-shadow: 
+      inset 0 -15px 30px rgba(0,0,0,0.02),
+      inset 0 0 0 1px rgba(0,0,0,0.01);
   }
 
-  /* 正面装饰线（左右斜边） */
+  /* 正面侧边折痕：增加左右两个三角，模拟侧边向内折叠的结构 */
   .envelope::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: #fcfcfc;
-    clip-path: polygon(0 100%, 50% 45%, 100% 100%);
+    background: 
+      linear-gradient(30deg, #fcfcfc 0%, #fcfcfc 49%, #f2f2f2 50%, transparent 51%),
+      linear-gradient(-30deg, #fcfcfc 0%, #fcfcfc 49%, #f2f2f2 50%, transparent 51%);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    /* 使用 clip-path 模拟侧边折叠效果，不覆盖底部 */
+    clip-path: polygon(0 0, 50% 45%, 100% 0, 100% 100%, 0 100%);
     z-index: 3;
-    border-top: 1px solid rgba(0,0,0,0.03);
+    opacity: 0.95;
+  }
+
+  /* 底部三角：覆盖在侧边之上，形成经典的信封交叠感 */
+  .envelope-bottom {
+    position: absolute;
+    inset: 0;
+    background: #ffffff;
+    clip-path: polygon(0 100%, 50% 45%, 100% 100%);
+    z-index: 4;
+    /* 底部三角稍微亮一点，并给侧边投射极淡的阴影 */
+    filter: drop-shadow(0 -3px 6px rgba(0,0,0,0.04));
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
   }
 
   .seal {
