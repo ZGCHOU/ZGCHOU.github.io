@@ -5,77 +5,86 @@
 @layer base {
   :root {
     color-scheme: light;
-    --handbook-paper: #fdfaf1;
-    --handbook-ink: #2f3a33;
-    --handbook-sage: #a8bfa1;
-    --handbook-coral: #e9ad9a;
-    --handbook-sky: #a5cad2;
-    --handbook-accent: #a8bfa1;
-    --handbook-red: #e9ad9a;
+    /* 纯净白高级感调色盘 */
+    --handbook-paper: #ffffff;
+    --handbook-ink: #121212;
+    --handbook-sage: #4a5d4e;
+    --handbook-coral: #b8860b; /* 金色质感点缀 */
+    --handbook-sky: #f0f4f8;
+    --handbook-accent: #121212;
+    
+    /* 极致白玻璃态 */
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.8);
+    --glass-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.03);
   }
 
   html,
   body {
     height: 100%;
     overflow-x: hidden;
+    background-color: #ffffff;
   }
 
   body {
     margin: 0;
     color: var(--handbook-ink);
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+    font-family: "Inter", "SF Pro Display", "PingFang SC", system-ui, sans-serif;
 
-    background-color: var(--handbook-paper);
+    /* 纯白色背景配以极淡的纹理 */
     background-image:
-      /* 极致光影：多层微光叠加 + 噪点补偿 */
-      radial-gradient(at 15% 10%, rgba(168, 191, 161, 0.12) 0px, transparent 40%),
-      radial-gradient(at 85% 15%, rgba(233, 173, 154, 0.08) 0px, transparent 35%),
-      radial-gradient(at 50% 90%, rgba(165, 202, 210, 0.08) 0px, transparent 40%),
-      url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.015'/%3E%3C/svg%3E");
+      radial-gradient(at 0% 0%, rgba(0, 0, 0, 0.01) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(0, 0, 0, 0.01) 0px, transparent 50%),
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.01'/%3E%3C/svg%3E");
     background-attachment: fixed;
   }
 }
 
 @layer components {
+  /* 极致简洁的白色卡片 */
   .handbook-card {
-    @apply rounded-[3rem] bg-white/40 p-10 backdrop-blur-3xl transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)];
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    box-shadow: 
-      0 25px 80px -20px rgba(0, 0, 0, 0.04),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.2);
-    position: relative;
-    overflow: hidden;
+    @apply rounded-[1.5rem] p-10 backdrop-blur-2xl transition-all duration-500 ease-out;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
   }
 
-  /* 极细微高光边缘 */
-  .handbook-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    @apply pointer-events-none;
-    background: linear-gradient(135deg, rgba(255,255,255,0.5) 0%, transparent 60%);
+  .handbook-card:hover {
+    @apply -translate-y-1 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.06)] bg-white/90;
   }
 
   .handbook-card-hover {
-    @apply hover:translate-y-[-8px] hover:bg-white/60 hover:shadow-[0_40px_90px_-20px_rgba(0,0,0,0.08)];
+    @apply hover:translate-y-[-4px] hover:bg-white/80 hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.05)];
   }
 
-  /* 拟物化信封 */
+  /* 极简按钮基础 */
+  .btn-premium {
+    @apply px-8 py-3 rounded-full font-medium tracking-wide transition-all duration-300 active:scale-95;
+    background: var(--handbook-ink);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+
+  .btn-premium:hover {
+    @apply shadow-lg -translate-y-0.5;
+    background: #333;
+  }
+
+  /* 拟物化信封增强 */
   .envelope-wrapper {
-    perspective: 1000px;
+    perspective: 1200px;
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.08));
   }
   
   .envelope {
     position: relative;
-    width: 280px;
-    height: 180px;
-    background: #f3f0e6;
-    border-radius: 4px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 320px;
+    height: 200px;
+    background: #ffffff;
+    border-radius: 8px;
     transform-style: preserve-3d;
-    transition: transform 1s ease-in-out;
+    transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .envelope-flap {
