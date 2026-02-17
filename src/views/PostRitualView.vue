@@ -15,7 +15,7 @@ const letter = ref(null)
 const isLoading = ref(false)
 
 const phase = ref('init')
-const isFlapClosed = computed(() => phase.value !== 'open')
+const isFlapClosed = computed(() => ['close', 'stamp', 'fly', 'done'].includes(phase.value))
 const isStamped = computed(() => ['stamp', 'fly', 'done'].includes(phase.value))
 const isFlying = computed(() => phase.value === 'fly')
 
@@ -29,19 +29,23 @@ async function reload() {
 }
 
 function startSequence() {
-  phase.value = 'open'
+  // 初始状态为 init (对应 CSS 中的打开状态)
+  // 1. 等待一下让用户看清“信件已折好”
   window.setTimeout(() => {
-    phase.value = 'close'
-  }, 700)
+    phase.value = 'close' // 开始合拢
+  }, 800)
+  
   window.setTimeout(() => {
-    phase.value = 'stamp'
-  }, 1300)
+    phase.value = 'stamp' // 盖章
+  }, 1800)
+  
   window.setTimeout(() => {
-    phase.value = 'fly'
-  }, 2100)
+    phase.value = 'fly' // 飞走
+  }, 2800)
+  
   window.setTimeout(() => {
-    phase.value = 'done'
-  }, 3100)
+    phase.value = 'done' // 完成
+  }, 4000)
 }
 
 function goLetter() {
