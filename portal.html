@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects · ZGCHOU</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #fdfaf1;
+        --ink: #2f3a33;
+        --muted: rgba(47, 58, 51, 0.6);
+        --card: rgba(255, 255, 255, 0.7);
+        --ring: rgba(0, 0, 0, 0.08);
+      }
+      html, body { height: 100%; }
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+        color: var(--ink);
+        background: var(--bg);
+      }
+      .wrap { max-width: 880px; margin: 0 auto; padding: 56px 20px 72px; }
+      h1 { margin: 0; font-size: 32px; }
+      p { margin: 12px 0 0; color: var(--muted); line-height: 1.6; }
+      .grid { margin-top: 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+      a.card { display: block; text-decoration: none; color: inherit; background: var(--card); border: 1px solid var(--ring); border-radius: 18px; padding: 16px; }
+      a.card:hover { background: rgba(255,255,255,0.85); }
+      .title { font-weight: 700; }
+      .desc { margin-top: 6px; font-size: 13px; color: var(--muted); }
+      .meta { margin-top: 10px; font-size: 12px; color: rgba(47,58,51,0.45); }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <h1>Projects</h1>
+      <p>这是我的项目部署入口。点击进入各个 Vue/JS 小项目。</p>
+      <section class="grid">
+        <a class="card" href="./deyou/">
+          <div class="title">解忧杂货铺</div>
+          <div class="desc">离线 · 私密 · 写信投递 · 等待回信</div>
+          <div class="meta">路径：/deyou/</div>
+        </a>
+      </section>
+    </main>
+  </body>
+</html>
