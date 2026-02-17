@@ -1,7 +1,7 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue'
 import { RouterLink } from 'vue-router'
-import { Heart, Pin, Trash2, PencilLine } from 'lucide-vue-next'
+import { Heart, Pin, Trash2, PencilLine, ArrowLeft, RefreshCw, Plus } from 'lucide-vue-next'
 
 import PrimaryButton from '../components/PrimaryButton.vue'
 import { formatDateTime, listLetters, moodLabel, LetterStatus, toggleFavorite, togglePin, deleteLetter, updateLetter } from '../lib/db'
@@ -82,24 +82,43 @@ onMounted(async () => {
 </script>
 
 <template>
-  <main class="mx-auto w-full max-w-2xl px-5 pb-24 pt-10 sm:px-6 sm:pt-16">
-    <header class="mb-8 flex items-end justify-between gap-4">
+  <main class="mx-auto w-full max-w-3xl px-6 pb-24 pt-16 sm:px-10 sm:pt-20">
+    <header class="mb-12 flex items-end justify-between gap-4">
       <div>
-        <div class="text-sm text-handbook-ink/60">信箱</div>
-        <h1 class="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">你的投递与回信</h1>
+        <div class="flex items-center gap-4 mb-6">
+          <button 
+            @click="$router.push('/')"
+            class="flex h-10 w-10 items-center justify-center rounded-full bg-white/40 text-handbook-ink/40 transition-all hover:bg-white/60 hover:text-handbook-ink shadow-sm ring-1 ring-black/5 active:scale-90"
+          >
+            <ArrowLeft class="h-5 w-5" />
+          </button>
+          <div class="text-[11px] font-bold tracking-[0.2em] text-handbook-ink/30 uppercase">Your Inbox</div>
+        </div>
+        <h1 class="text-3xl font-semibold tracking-tight text-handbook-ink sm:text-4xl">你的投递与回信</h1>
       </div>
-      <div class="flex gap-2">
-        <PrimaryButton to="/settings" variant="ghost" size="md">设置</PrimaryButton>
-        <PrimaryButton variant="ghost" size="md" :disabled="isLoading" @click="reload">刷新</PrimaryButton>
-        <PrimaryButton to="/write" size="md">写信</PrimaryButton>
+      
+      <div class="flex gap-3">
+        <button 
+          @click="reload"
+          :class="{ 'animate-spin': isLoading }"
+          class="flex h-12 w-12 items-center justify-center rounded-full bg-white/40 text-handbook-ink/40 transition-all hover:bg-white/60 hover:text-handbook-ink shadow-sm ring-1 ring-black/5"
+        >
+          <RefreshCw class="h-5 w-5" />
+        </button>
+        <PrimaryButton to="/write" size="md" class="!px-6">
+          <Plus class="h-5 w-5 mr-1" />
+          <span>写信</span>
+        </PrimaryButton>
       </div>
     </header>
 
-    <section class="grid gap-4">
-      <div v-if="viewModels.length === 0" class="handbook-card">
-        <div class="text-lg font-semibold">还没有信件</div>
-        <div class="mt-1 text-sm text-handbook-ink/60">从第一封开始，我们就慢慢把心情放好。</div>
-        <div class="mt-5">
+    <section class="grid gap-6">
+      <div v-if="viewModels.length === 0" class="handbook-card !p-12 text-center">
+        <div class="text-xl font-semibold text-handbook-ink/80">还没有信件</div>
+        <div class="mt-3 text-sm text-handbook-ink/40 leading-relaxed">
+          从第一封开始，我们就慢慢把心情放好。
+        </div>
+        <div class="mt-10">
           <PrimaryButton to="/write" size="lg">写第一封</PrimaryButton>
         </div>
       </div>
@@ -111,14 +130,20 @@ onMounted(async () => {
       >
         <RouterLink
           :to="`/letter/${l.id}`"
-          class="handbook-card handbook-card-hover block"
-          :class="{ 'ring-2 ring-handbook-accent/20': l.isPinned }"
+          class="handbook-card handbook-card-hover block !p-8"
+          :class="{ 'ring-2 ring-handbook-sage/30': l.isPinned }"
         >
-          <div class="flex items-start justify-between gap-4">
+          <div class="flex items-start justify-between gap-6">
             <div class="min-w-0 flex-1">
-              <div class="flex items-center gap-2 text-sm text-handbook-ink/60">
-                <Pin v-if="l.isPinned" class="h-3 w-3 text-handbook-accent" />
-                <Heart v-if="l.isFavorite" class="h-3 w-3 text-handbook-red fill-current" />
+              <div class="flex items-center gap-3 text-[11px] font-bold tracking-widest text-handbook-ink/30 uppercase mb-3">
+                <div v-if="l.isPinned" class="flex items-center gap-1 text-handbook-sage">
+                  <Pin class="h-3 w-3 fill-current" />
+                  <span>PINNED</span>
+                </div>
+                <div v-if="l.isFavorite" class="flex items-center gap-1 text-handbook-coral">
+                  <Heart class="h-3 w-3 fill-current" />
+                  <span>FAVORITE</span>
+                </div>
                 <span>{{ l.moodLabel }}</span>
               </div>
               
@@ -126,55 +151,57 @@ onMounted(async () => {
                 <textarea
                   v-model="editingText"
                   rows="3"
-                  class="w-full rounded-lg bg-black/5 p-3 text-sm outline-none ring-1 ring-black/10 focus:ring-handbook-accent/50"
+                  class="w-full rounded-2xl bg-black/[0.03] p-4 text-sm leading-relaxed outline-none ring-1 ring-black/5 focus:ring-handbook-sage/40"
                 />
-                <div class="mt-2 flex justify-end gap-2">
-                  <button class="text-xs text-handbook-ink/50" @click="editingId = null">取消</button>
-                  <button class="text-xs font-semibold text-handbook-accent" @click="saveEdit">保存</button>
+                <div class="mt-3 flex justify-end gap-3">
+                  <button class="text-xs font-bold text-handbook-ink/30 hover:text-handbook-ink transition" @click="editingId = null">取消</button>
+                  <button class="text-xs font-bold text-handbook-sage hover:brightness-90 transition" @click="saveEdit">保存变更</button>
                 </div>
               </div>
-              <div v-else class="mt-1 text-base font-semibold line-clamp-1">{{ l.preview }}</div>
+              <div v-else class="text-lg font-semibold text-handbook-ink leading-snug line-clamp-1">
+                {{ l.preview }}
+              </div>
               
-              <div class="mt-2 text-xs text-handbook-ink/50">{{ l.createdAtText }}</div>
+              <div class="mt-4 text-[10px] font-bold tracking-wider text-handbook-ink/20 uppercase">
+                {{ l.createdAtText }}
+              </div>
             </div>
 
-            <div class="flex flex-col items-end gap-3">
+            <div class="flex flex-col items-end gap-4">
               <div
-                class="shrink-0 rounded-full px-3 py-1 text-xs font-semibold"
-                :class="l.status === LetterStatus.replied ? 'bg-handbook-green/20 text-handbook-ink' : 'bg-black/5 text-handbook-ink/60'"
+                class="shrink-0 rounded-full px-4 py-1.5 text-[10px] font-bold tracking-widest uppercase shadow-sm ring-1"
+                :class="l.status === LetterStatus.replied 
+                  ? 'bg-handbook-sage/10 text-handbook-sage ring-handbook-sage/20' 
+                  : 'bg-black/5 text-handbook-ink/30 ring-black/5'"
               >
-                {{ l.status === LetterStatus.replied ? '已回信' : '等待中' }}
+                {{ l.status === LetterStatus.replied ? 'Replied' : 'Pending' }}
               </div>
 
-              <!-- 操作区 -->
-              <div class="flex items-center gap-1 opacity-0 transition-opacity group-hover:opacity-100" @click.prevent>
+              <!-- 悬浮操作区 -->
+              <div class="flex items-center gap-1 opacity-0 transition-all duration-500 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0" @click.prevent>
                 <button
-                  class="rounded-full p-2 hover:bg-black/5 transition"
-                  :title="l.isPinned ? '取消置顶' : '置顶'"
+                  class="rounded-full p-2.5 hover:bg-white/60 transition-all active:scale-90"
                   @click="handleTogglePin(l.id)"
                 >
-                  <Pin class="h-4 w-4" :class="l.isPinned ? 'text-handbook-accent fill-current' : 'text-handbook-ink/40'" />
+                  <Pin class="h-4 w-4" :class="l.isPinned ? 'text-handbook-sage fill-current' : 'text-handbook-ink/20'" />
                 </button>
                 <button
-                  class="rounded-full p-2 hover:bg-black/5 transition"
-                  :title="l.isFavorite ? '取消收藏' : '收藏'"
+                  class="rounded-full p-2.5 hover:bg-white/60 transition-all active:scale-90"
                   @click="handleToggleFavorite(l.id)"
                 >
-                  <Heart class="h-4 w-4" :class="l.isFavorite ? 'text-handbook-red fill-current' : 'text-handbook-ink/40'" />
+                  <Heart class="h-4 w-4" :class="l.isFavorite ? 'text-handbook-coral fill-current' : 'text-handbook-ink/20'" />
                 </button>
                 <button
-                  class="rounded-full p-2 hover:bg-black/5 transition"
-                  title="编辑"
+                  class="rounded-full p-2.5 hover:bg-white/60 transition-all active:scale-90"
                   @click="startEdit(l)"
                 >
-                  <PencilLine class="h-4 w-4 text-handbook-ink/40" />
+                  <PencilLine class="h-4 w-4 text-handbook-ink/20" />
                 </button>
                 <button
-                  class="rounded-full p-2 hover:bg-red-50 transition"
-                  title="删除"
+                  class="rounded-full p-2.5 hover:bg-red-50 transition-all active:scale-90"
                   @click="handleDelete(l.id)"
                 >
-                  <Trash2 class="h-4 w-4 text-red-400" />
+                  <Trash2 class="h-4 w-4 text-handbook-coral/40 hover:text-handbook-coral" />
                 </button>
               </div>
             </div>
@@ -184,3 +211,10 @@ onMounted(async () => {
     </section>
   </main>
 </template>
+
+<style scoped>
+.group:hover .handbook-card {
+  background: rgba(255, 255, 255, 0.55);
+}
+</style>
+

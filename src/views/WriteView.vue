@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { ArrowLeft, Send } from 'lucide-vue-next'
 
 import PrimaryButton from '../components/PrimaryButton.vue'
 import { Mood, createLetter, ensureDefaultSettings, moodLabel } from '../lib/db'
@@ -57,17 +58,31 @@ async function submit() {
 </script>
 
 <template>
-  <main class="mx-auto w-full max-w-2xl px-5 pb-24 pt-10 sm:px-6 sm:pt-16">
-    <header class="mb-8">
-      <div class="text-sm text-handbook-ink/60">写一封信</div>
-      <h1 class="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">把这一刻写下来</h1>
-      <div class="mt-4 flex gap-2 overflow-x-auto pb-2">
+  <main class="mx-auto w-full max-w-3xl px-6 pb-24 pt-16 sm:px-10 sm:pt-20">
+    <header class="mb-12">
+      <div class="flex items-center justify-between">
+        <button 
+          @click="goBack"
+          class="flex h-10 w-10 items-center justify-center rounded-full bg-white/40 text-handbook-ink/40 transition-all hover:bg-white/60 hover:text-handbook-ink shadow-sm ring-1 ring-black/5 active:scale-90"
+        >
+          <ArrowLeft class="h-5 w-5" />
+        </button>
+        <div class="text-[11px] font-bold tracking-[0.2em] text-handbook-ink/30 uppercase">New Letter</div>
+      </div>
+      
+      <h1 class="mt-8 text-3xl font-semibold tracking-tight text-handbook-ink sm:text-4xl">
+        把这一刻写下来
+      </h1>
+      
+      <div class="mt-8 flex gap-2.5 overflow-x-auto pb-4 no-scrollbar">
         <button
           v-for="m in moods"
           :key="m.key"
           type="button"
-          class="shrink-0 rounded-full px-4 py-2 text-sm ring-1 ring-black/10 transition"
-          :class="selectedMood === m.key ? 'bg-handbook-green/30 text-handbook-ink' : 'bg-white/50 text-handbook-ink/70 hover:bg-white/70'"
+          class="shrink-0 rounded-full px-5 py-2 text-sm font-medium transition-all duration-500 ring-1"
+          :class="selectedMood === m.key 
+            ? 'bg-handbook-ink text-handbook-paper ring-handbook-ink shadow-lg shadow-handbook-ink/20' 
+            : 'bg-white/40 text-handbook-ink/50 ring-black/5 hover:bg-white/60'"
           @click="selectedMood = m.key"
         >
           {{ m.label }}
@@ -75,20 +90,49 @@ async function submit() {
       </div>
     </header>
 
-    <section class="handbook-card">
-      <textarea
-        v-model="content"
-        rows="10"
-        class="w-full resize-none rounded-handbook-sm bg-transparent text-base leading-relaxed outline-none placeholder:text-handbook-ink/30"
-        placeholder="把烦恼写下来，不需要修饰…"
-      />
+    <section class="handbook-card !p-2 relative">
+      <div class="bg-black/[0.02] rounded-[2.5rem] inset-shadow-sm">
+        <textarea
+          v-model="content"
+          rows="12"
+          class="w-full resize-none rounded-[2.5rem] bg-transparent p-8 text-lg leading-relaxed text-handbook-ink outline-none placeholder:text-handbook-ink/20"
+          placeholder="那些没能说出口的话，都可以在这里写下…"
+        />
+      </div>
 
-      <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-between">
-        <PrimaryButton variant="ghost" size="lg" :disabled="isSubmitting" @click="goBack">返回首页</PrimaryButton>
-        <PrimaryButton size="lg" :disabled="isSubmitting || !content.trim()" @click="submit">
-          {{ isSubmitting ? '投递中…' : '投递' }}
+      <div class="p-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div class="text-xs text-handbook-ink/30 font-medium ml-2">
+          {{ content.trim().length }} 个字符 · 我们会认真倾听
+        </div>
+        
+        <PrimaryButton 
+          size="lg" 
+          :disabled="isSubmitting || !content.trim()" 
+          @click="submit"
+          class="sm:min-w-[160px]"
+        >
+          <template v-if="isSubmitting">投递中…</template>
+          <template v-else>
+            <div class="flex items-center gap-2">
+              <span>完成投递</span>
+              <Send class="h-4 w-4" />
+            </div>
+          </template>
         </PrimaryButton>
       </div>
     </section>
   </main>
 </template>
+
+<style scoped>
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.inset-shadow-sm {
+  box-shadow: inset 0 2px 10px rgba(0,0,0,0.02);
+}
+</style>

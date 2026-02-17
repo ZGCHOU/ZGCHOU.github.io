@@ -5,6 +5,13 @@
 @layer base {
   :root {
     color-scheme: light;
+    --handbook-paper: #fdfaf1;
+    --handbook-ink: #2f3a33;
+    --handbook-sage: #a8bfa1;
+    --handbook-coral: #e9ad9a;
+    --handbook-sky: #a5cad2;
+    --handbook-accent: #a8bfa1;
+    --handbook-red: #e9ad9a;
   }
 
   html,
@@ -15,59 +22,44 @@
 
   body {
     margin: 0;
-    color: #2f3a33;
+    color: var(--handbook-ink);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
 
-    /* 奶油纸张 + 复合光晕系统 */
-    background-color: #fdfaf1;
+    background-color: var(--handbook-paper);
     background-image:
-      /* 鼠尾草绿柔光 */
-      radial-gradient(at 15% 10%, rgba(168, 191, 161, 0.25) 0px, transparent 45%),
-      /* 暖阳橘柔光 */
-      radial-gradient(at 85% 15%, rgba(233, 173, 154, 0.18) 0px, transparent 40%),
-      /* 蓝紫色微光 */
-      radial-gradient(at 50% 90%, rgba(165, 202, 210, 0.15) 0px, transparent 45%),
-      /* 高级噪点纹理 */
-      url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E"),
-      /* 纸张点阵 */
-      radial-gradient(rgba(47, 58, 51, 0.04) 0.5px, transparent 0.5px),
-      radial-gradient(rgba(168, 191, 161, 0.06) 0.55px, transparent 0.55px);
-    
-    background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 12px 12px;
-    background-size: 100% 100%, 100% 100%, 100% 100%, 200px 200px, 24px 24px, 24px 24px;
+      /* 极致光影：多层微光叠加 + 噪点补偿 */
+      radial-gradient(at 15% 10%, rgba(168, 191, 161, 0.12) 0px, transparent 40%),
+      radial-gradient(at 85% 15%, rgba(233, 173, 154, 0.08) 0px, transparent 35%),
+      radial-gradient(at 50% 90%, rgba(165, 202, 210, 0.08) 0px, transparent 40%),
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.015'/%3E%3C/svg%3E");
     background-attachment: fixed;
   }
 }
 
 @layer components {
   .handbook-card {
-    @apply rounded-[2.5rem] bg-white/60 p-8 shadow-handbook ring-1 ring-white/40 backdrop-blur-2xl transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)];
+    @apply rounded-[3rem] bg-white/40 p-10 backdrop-blur-3xl transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)];
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 
+      0 25px 80px -20px rgba(0, 0, 0, 0.04),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.2);
     position: relative;
     overflow: hidden;
   }
 
-  /* 拟物化高光描边 */
+  /* 极细微高光边缘 */
   .handbook-card::before {
     content: '';
     position: absolute;
     inset: 0;
-    @apply rounded-[2.5rem] pointer-events-none ring-1 ring-inset ring-white/60;
-    background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, transparent 50%, rgba(0,0,0,0.02) 100%);
-  }
-
-  /* 纸张微噪点叠加 */
-  .handbook-card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    @apply rounded-[2.5rem] pointer-events-none opacity-[0.03] mix-blend-overlay;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    @apply pointer-events-none;
+    background: linear-gradient(135deg, rgba(255,255,255,0.5) 0%, transparent 60%);
   }
 
   .handbook-card-hover {
-    @apply hover:translate-y-[-8px] hover:bg-white/75 hover:shadow-handbook-hover;
+    @apply hover:translate-y-[-8px] hover:bg-white/60 hover:shadow-[0_40px_90px_-20px_rgba(0,0,0,0.08)];
   }
 
   /* 拟物化信封 */

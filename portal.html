@@ -3,45 +3,193 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projects · ZGCHOU</title>
+    <title>ZGCHOU</title>
     <style>
       :root {
-        color-scheme: light;
         --bg: #fdfaf1;
         --ink: #2f3a33;
-        --muted: rgba(47, 58, 51, 0.6);
-        --card: rgba(255, 255, 255, 0.7);
-        --ring: rgba(0, 0, 0, 0.08);
+        --sage: #a8bfa1;
+        --coral: #e9ad9a;
+        --sky: #a5cad2;
       }
-      html, body { height: 100%; }
+
+      * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+
       body {
         margin: 0;
-        font-family: system-ui, -apple-system, Segoe UI, Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+        min-height: 100vh;
+        font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
         color: var(--ink);
-        background: var(--bg);
+        background-color: var(--bg);
+        background-image:
+          radial-gradient(at 15% 10%, rgba(168, 191, 161, 0.15) 0px, transparent 40%),
+          radial-gradient(at 85% 15%, rgba(233, 173, 154, 0.1) 0px, transparent 35%),
+          radial-gradient(at 50% 90%, rgba(165, 202, 210, 0.1) 0px, transparent 40%),
+          url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 20px;
       }
-      .wrap { max-width: 880px; margin: 0 auto; padding: 56px 20px 72px; }
-      h1 { margin: 0; font-size: 32px; }
-      p { margin: 12px 0 0; color: var(--muted); line-height: 1.6; }
-      .grid { margin-top: 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
-      a.card { display: block; text-decoration: none; color: inherit; background: var(--card); border: 1px solid var(--ring); border-radius: 18px; padding: 16px; }
-      a.card:hover { background: rgba(255,255,255,0.85); }
-      .title { font-weight: 700; }
-      .desc { margin-top: 6px; font-size: 13px; color: var(--muted); }
-      .meta { margin-top: 10px; font-size: 12px; color: rgba(47,58,51,0.45); }
+
+      .container {
+        width: 100%;
+        max-width: 720px;
+        text-align: left;
+      }
+
+      .mark {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        opacity: 0.85;
+        margin-bottom: 22px;
+      }
+
+      .dot {
+        width: 9px;
+        height: 9px;
+        background: var(--sage);
+        border-radius: 999px;
+        box-shadow: 0 0 18px rgba(168, 191, 161, 0.9);
+      }
+
+      .mark-text {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        color: rgba(47, 58, 51, 0.45);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .card {
+        position: relative;
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        background: rgba(255, 255, 255, 0.45);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        padding: 26px 26px;
+        border-radius: 28px;
+        border: 1px solid rgba(255, 255, 255, 0.55);
+        box-shadow:
+          0 24px 60px rgba(0, 0, 0, 0.05),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+        transition: transform 520ms cubic-bezier(0.23, 1, 0.32, 1),
+          background 520ms cubic-bezier(0.23, 1, 0.32, 1),
+          box-shadow 520ms cubic-bezier(0.23, 1, 0.32, 1);
+        overflow: hidden;
+      }
+
+      .card::before {
+        content: '';
+        position: absolute;
+        inset: -2px;
+        background:
+          radial-gradient(650px circle at 20% 20%, rgba(168, 191, 161, 0.14), transparent 55%),
+          radial-gradient(650px circle at 80% 30%, rgba(233, 173, 154, 0.10), transparent 60%),
+          radial-gradient(650px circle at 60% 90%, rgba(165, 202, 210, 0.10), transparent 55%);
+        pointer-events: none;
+      }
+
+      .card:hover {
+        transform: translateY(-8px);
+        background: rgba(255, 255, 255, 0.62);
+        box-shadow:
+          0 34px 90px rgba(0, 0, 0, 0.08),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+      }
+
+      .name {
+        position: relative;
+        font-size: 20px;
+        font-weight: 650;
+        letter-spacing: 0.04em;
+      }
+
+      .desc {
+        position: relative;
+        margin-top: 8px;
+        font-size: 13px;
+        line-height: 1.6;
+        color: rgba(47, 58, 51, 0.55);
+      }
+
+      .pill {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        margin-top: 14px;
+        padding: 5px 12px;
+        border-radius: 999px;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        color: rgba(47, 58, 51, 0.42);
+        background: rgba(0, 0, 0, 0.04);
+      }
+
+      .placeholder {
+        opacity: 0.48;
+        cursor: default;
+        border-style: dashed;
+      }
+
+      footer {
+        margin-top: 22px;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.28em;
+        color: rgba(47, 58, 51, 0.22);
+      }
+
+      .fade {
+        animation: fadeUp 900ms cubic-bezier(0.23, 1, 0.32, 1) both;
+      }
+
+      @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(18px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @media (min-width: 760px) {
+        .grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .container {
+          max-width: 980px;
+        }
+      }
     </style>
   </head>
   <body>
-    <main class="wrap">
-      <h1>Projects</h1>
-      <p>这是我的项目部署入口。点击进入各个 Vue/JS 小项目。</p>
+    <main class="container fade">
+      <div class="mark">
+        <span class="dot"></span>
+        <span class="mark-text">ZGCHOU.GITHUB.IO</span>
+      </div>
+
       <section class="grid">
         <a class="card" href="./deyou/">
-          <div class="title">解忧杂货铺</div>
-          <div class="desc">离线 · 私密 · 写信投递 · 等待回信</div>
-          <div class="meta">路径：/deyou/</div>
+          <div class="name">解忧杂货铺</div>
+          <div class="desc">把烦恼写下来，像把纸折好。你不用立刻变好，我们慢慢来。</div>
+          <div class="pill">CURATIVE · OFFLINE</div>
         </a>
+
+        <div class="card placeholder">
+          <div class="name">下一页（预留）</div>
+          <div class="desc">以后新项目会出现在这里。</div>
+          <div class="pill">COMING SOON</div>
+        </div>
       </section>
+
+      <footer>NO ACCOUNT · NO CLOUD · OFFLINE FIRST</footer>
     </main>
   </body>
 </html>
