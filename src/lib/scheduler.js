@@ -12,6 +12,14 @@ function clearTimer(id) {
 }
 
 async function processLetter(letter) {
+  console.log('[Scheduler] processLetter', {
+    id: letter?.id,
+    status: letter?.status,
+    replyId: letter?.replyId,
+    replyDueAt: letter?.replyDueAt,
+    now: Date.now(),
+  })
+
   if (!letter) return
   if (letter.status === LetterStatus.replied) return
   if (letter.replyId) return
@@ -19,7 +27,10 @@ async function processLetter(letter) {
 
   if (Date.now() < letter.replyDueAt) return
 
+  console.log('[Scheduler] due reached, generating reply...', { id: letter.id })
   const reply = await generateReplyForLetter(letter)
+  console.log('[Scheduler] reply generated', { letterId: letter.id, replyId: reply?.id })
+
   await updateLetter(letter.id, {
     status: LetterStatus.replied,
     replyId: reply.id,

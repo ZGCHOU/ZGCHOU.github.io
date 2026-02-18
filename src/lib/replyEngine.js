@@ -1,4 +1,5 @@
 import { createReply, getSetting, Mood } from './db'
+import { generateKimiReply } from './kimi'
 
 const templates = {
   [Mood.anxiety]: [
@@ -72,18 +73,35 @@ export async function computeReplyDueAt() {
 }
 
 export async function generateReplyForLetter(letter) {
-  const base = templates[letter.mood] || templates[Mood.anxiety]
-  const text = pick(base)
-  const tags = detectTags(letter.content)
+  console.log('[ReplyEngine] generateReplyForLetter', {
+    id: letter?.id,
+    mood: letter?.mood,
+    dueAt: letter?.replyDueAt,
+    now: Date.now(),
+  })
 
-  let extra = ''
-  if (tags.includes('work')) extra = '\n\n如果可以的话，把“必须做到完美”换成“做到足够好”。你已经很努力了。'
-  if (tags.includes('study')) extra = '\n\n学习是一点点堆起来的。今天做 10 分钟也算，别小看它。'
-  if (tags.includes('love')) extra = '\n\n感情里的难受很锋利，但它也会被时间磨圆。你值得更温柔的相处。'
-  if (tags.includes('family')) extra = '\n\n家人带来的情绪很复杂。你可以先照顾自己的感受，再决定怎么回应。'
+  try {
+    console.log('[ReplyEngine] trying Kimi...')
+    const content = await generateKimiReply(letter)
+    console.log('[ReplyEngine] Kimi success')
+    const reply = await createReply({ content, mood: letter.mood, letterId: letter.id })
+    return reply
+  } catch (e) {
+    console.error('[ReplyEngine] Kimi failed, fallback to templates', e)
 
-  const content = `${text}${extra}\n\n—— 小铺掌柜`
-  const reply = await createReply({ content, mood: letter.mood, letterId: letter.id })
-  return reply
+    const base = templates[letter.mood] || templates[Mood.anxiety]
+    const text = pick(base)
+    const tags = detectTags(letter.content)
+
+    let extra = ''
+    if (tags.includes('work')) extra = '\n\n如果可以的话，把“必须做到完美”换成“做到足够好”。你已经很努力了。'
+    if (tags.includes('study')) extra = '\n\n学习是一点点堆起来的。今天做 10 分钟也算，别小看它。'
+    if (tags.includes('love')) extra = '\n\n感情里的难受很锋利，但它也会被时间磨圆。你值得更温柔的相处。'
+    if (tags.includes('family')) extra = '\n\n家人带来的情绪很复杂。你可以先照顾自己的感受，再决定怎么回应。'
+
+    const content = `${text}${extra}\n\n—— 小铺掌柜`
+    const reply = await createReply({ content, mood: letter.mood, letterId: letter.id })
+    return reply
+  }
 }
 
