@@ -11,5 +11,13 @@ export default defineConfig({
     rollupOptions: {
       input: 'index.html',
     },
+    // 生产环境移除所有 console
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+    },
   },
 })
